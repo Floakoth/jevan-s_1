@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEVAN OTIENO | Professional Photographer</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #4e54c8 0%, #8f94fb 100%);
+            color: #222;
+            margin-left: 0;
+        }
+
+        header {
+            background: linear-gradient(120deg, #232526 0%, #4e54c8 100%);
+            color: #fff;
+            padding: 3rem 0 2rem 0;put 
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.3rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .hero-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #008cff;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            background: #232526;
+            text-align: center;
+            padding: 0.7rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            min-height: auto;
+            position: static;
+            top: unset;
+            left: unset;
+            z-index: 10;
+        }
+
+        nav a {
+            display: inline-block;
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ffd700;
+            transition: width .3s;
+            margin: 0 auto;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .home {
+            max-width: 900px;
+            margin: 2.5rem auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .home h2 {
+            margin-top: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #232526;
+        }
+
+        .home p {
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .home a {
+            display: inline-block;
+            margin-top: 2rem;
+            background: #ffd700;
+            color: #232526;
+            padding: 0.8rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .home a:hover {
+            background: #232526;
+            color: #ffd700;
+        }
+
+        .about, .contact, .gallery-section {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 2.5rem;
+        }
+
+        .about h2, .contact h2, .gallery-section h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #232526;
+            font-weight: 700;
+        }
+
+        .about p, .gallery-section p {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            padding: 1.5rem 0 0 0;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #f4f4f4;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+            border-color: #ffd700;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact label {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #fafafa;
+            transition: border 0.2s;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            border: 1.5px solid #ffd700;
+            outline: none;
+        }
+
+        .contact button {
+            background: #00ff88;
+            color: #232526;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .contact button:hover {
+            background: #232526;
+            color: #ffd700;
+        }
+
+        footer {
+            background: #232526;
+            color: #00ccff;
+            text-align: center;
+            padding: 1.2rem 0 1rem 0;
+            margin-top: 2.5rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 600px) {
+            .home, .about, .contact, .gallery-section {
+                padding: 1.2rem;
+            }
+            nav a {
+                margin: 0 0.7rem;
+                font-size: 1rem;
+            }
+            .gallery img {
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            nav {
+                position: static;
+                max-width: 100%;
+                min-height: auto;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                padding: 0.7rem 0;
+            }
+            nav a {
+                margin: 0 1rem;
+                padding: 0.5rem 0;
+            }
+            body {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="profile.jpg" alt="Jevan Otieno" class="hero-image" onerror="this.style.display='none'">
+        <h1>JEVAN OTIENO</h1>
+        <p>Professional Photographer</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#weddings">Weddings</a>
+        <a href="#events">Events</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <h2>Welcome to My Photography Portfolio</h2>
+        <p>
+            Capturing moments, telling stories.<br>
+            Explore my work and get in touch for collaborations or bookings.<br>
+            <span style="color:#ae00ff;font-weight:600;">Specializing in Weddings, Events, Portraits & More</span>
+        </p>
+        <a href="#portfolio">View Portfolio</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <img src="jev.jpg" alt="About Jevan Otieno" style="width:220px;max-width:100%;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.10);margin-bottom:1.5rem;">
+        <p>
+            Hello! I'm Jevan Otieno, a passionate professional photographer based in Kenya. My mission is to capture authentic moments and create timeless images that tell your unique story. With years of experience and a creative eye, I deliver stunning visuals for every client, ensuring your memories are preserved beautifully.
+        </p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="gallery-section" id="portfolio">
+        <h2>Portfolio</h2>
+        <p>Discover a selection of my favorite work across different genres.</p>
+        <div class="gallery">
+            <img src="peter.jpg" alt="Photography">
+            <img src="heel.jpg" alt="Photography">
+            <img src="wedding icon.jpg" alt="wedding Photography">
+            <img src="child.jpg" alt="Creative Photography">
+            <img src="boss.jpg" alt="Photography">
+            <img src="birth.jpg" alt="Photography">
+        </div>
+    </section
+    <!-- Weddings Section -->
+    <section id="weddings" class="gallery-section">
+        <h2>Weddings</h2>
+        <p>
+            I specialize in capturing the magic and emotion of your special day. My wedding photography blends candid moments with beautiful portraits, ensuring memories that last a lifetime.
+        </p>
+        <div class="gallery">
+            <img src="wed.jpg" alt="Wedding Photo 1">
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="gallery-section">
+        <h2>Events</h2>
+        <p>
+           
+        </p>
+        <div class="gallery">
+            <img src="gra.jpg" alt="Event Photo 1">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="about" style="background: linear-gradient(120deg, #8f94fb 0%, #ae00ff 100%); color: #fff; box-shadow: 0 6px 32px rgba(80,0,120,0.10);">
+        <h2 style="text-align:center; color:#ffd700; letter-spacing:2px; font-size:2.2rem; margin-bottom:1.5rem;">
+            My Services
+        </h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+            <div style="background: rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 2rem 1.5rem; flex: 1 1 260px; min-width: 260px; max-width: 340px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align:center;">
+                <h3 style="color:#ffd700;">Wedding Photography</h3>
+                <p>Full-day coverage, pre-wedding shoots, and custom packages to capture your special day with elegance and emotion.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.10); border-radius: 12px; padding: 2rem 1.5rem; flex: 1 1 260px; min-width: 260px; max-width: 340px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align:center;">
+                <h3 style="color:#ffd700;">Event Photography</h3>
+                <p>Corporate events, birthdays, graduations, and private parties—captured with a keen eye for detail and atmosphere.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.10); border-radius: 12px; padding: 2rem 1.5rem; flex: 1 1 260px; min-width: 260px; max-width: 340px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align:center;">
+                <h3 style="color:#ffd700;">Portrait Photography</h3>
+                <p>Individual, family, and group portraits in studio or on location—timeless images you'll treasure forever.</p>
+            </div>
+            <div style="background: rgba(255,255,255,0.10); border-radius: 12px; padding: 2rem 1.5rem; flex: 1 1 260px; min-width: 260px; max-width: 340px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); text-align:center;">
+                <h3 style="color:#ffd700;">Product & Commercial</h3>
+                <p>High-quality images for brands, businesses, and advertising—make your products stand out!</p>
+            </div>
+        </div>
+        <div style="margin-top:2.5rem;text-align:center;">
+            <h3 style="color:#ffd700;">Photo Editing & Custom Shoots</h3>
+            <p>Professional retouching and tailored sessions for your unique needs—just ask!</p>
+            <a href="#contact" style="display:inline-block;margin-top:1rem;background:#ffd700;color:#4e54c8;padding:0.8rem 2rem;border-radius:6px;text-decoration:none;font-weight:700;font-size:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,0.08);transition:background 0.2s, color 0.2s;">Book Now</a>
+        </div>
+        <p style="margin-top:2rem;text-align:center;font-size:1.1rem;">
+            <strong>For bookings and inquiries:</strong>
+            <a href="mailto:Jevanodoyo504@gmail.com" style="color:#ffd700;text-decoration:underline;">Jevanodoyo504@gmail.com</a>
+            &nbsp;|&nbsp;
+            <a href="tel:+254795454563" style="color:#ffd700;text-decoration:underline;">+254 795454563</a>
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p>
+            Email: <a href="mailto:Jevanodoyo504@gmail.com">Jevanodoyo504@gmail.com</a><br>
+            Phone/WhatsApp: <a href="tel:+254795454563">+254 795454563</a>
+        </p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name">
+
+            <label for="email">Email:</label>
+            <input type="email
+            <input type="text" id="name" name="name" placeholder="Your Name">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com">
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="How can I help you?"></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jevan Otieno. All rights reserved. | <a href="mailto:jevan@email.com" style="color:#ffd700;text-decoration:underline;">jevan@email.com</a></p>
+    </footer>a href="mailto:Jevanodoyo504@gmail.com" style="color:#ffd700;text-decoration:underline;">
+    <script>    jevan@email.com
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href').slice(1);
+                const target = document.getElementById(targetId);
+                if (target) {rAll('nav a').forEach(link => {
+                    e.preventDefault();k', function(e) {
+                    target.scrollIntoView({ behavior: 'smooth' }););
+                }onst target = document.getElementById(targetId);
+            }); if (target) {
+        });         e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+        // Simple contact form validation
+        document.querySelector('.contact form').addEventListener('submit', function(e) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !email || !message) {).addEventListener('submit', function(e) {
+                alert('Please fill in all fields.');me').value.trim();
+                e.preventDefault();getElementById('email').value.trim();
+            } else if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {.value.trim();
+                alert('Please enter a valid email address.');
+                e.preventDefault();in all fields.');
+            } else {eventDefault();
+                alert('Thank you for contacting me, ' + name + '!');
+            }   alert('Please enter a valid email address.');
+        });     e.preventDefault();
+    </script> else {
+</body>         alert('Thank you for contacting me, ' + name + '!');
+</html>     }
+        });
+    </script>
+</body>
+</html>
